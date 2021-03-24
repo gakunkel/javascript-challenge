@@ -24,11 +24,26 @@ function runEnter() {
     // Selecting the user's input date
     var inputElement = d3.select("#datetime");
 
+    // Getting the value from the input field
     var inputValue = inputElement.property("value");
 
     // Don't tell the aliens we keep our user input there!!
     console.log("User Date Input: " + inputValue);
+    
+    // Filtering the data based on user's date input
+    var filteredData = tableData.filter(report => report.datetime === inputValue);
 
+    // Sending the data with that date to the console
+    console.log(filteredData);
+
+    // Creating variables for date, city, state, country, shape, duration, & comments
+    var filteredDate = filteredData.map(report => report.datetime);
+    var filteredCity = filteredData.map(report => report.city);
+    var filteredState = filteredData.map(report => report.state);
+    var filteredCountry = filteredData.map(report => report.country);
+    var filteredShape = filteredData.map(report => report.shape);
+    var filteredDuration = filteredData.map(report => report.duration);
+    var filteredComments = filteredData.map(report => report.comments);
 
 
 };
