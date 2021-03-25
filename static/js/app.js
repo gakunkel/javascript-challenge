@@ -23,7 +23,7 @@ function runEnter() {
     // Getting the value from the input field
     var inputValue = inputElement.property("value");
 
-    // Don't tell the aliens we keep our user input there!!
+    // Console logging user date imput
     console.log("User Date Input: " + inputValue);
     
     // Filtering the data based on user's date input
