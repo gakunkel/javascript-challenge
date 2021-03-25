@@ -1,8 +1,8 @@
-// from data.js
+// From data.js
 var tableData = data;
 
 // Need to select interactive html tags
-var form = d3.select("form");
+var form = d3.select("#form");
 var button = d3.select("#filter-btn");
 
 // Reference html file's tbody tag for inserting data
@@ -44,6 +44,11 @@ function runEnter() {
     // Appending the filtered data elements to the tbody
     filteredData.forEach(function(report) {
         var row = tbody.append("tr");
-    })
+        Object.entries(report).forEach(function([key, value]){
+            console.log(key, value);
+            var cell = row.append("td");
+            cell.text(value);
+        });
+    });
 };
 
