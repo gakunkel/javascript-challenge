@@ -5,13 +5,11 @@ var tableData = data;
 var form = d3.select("#form");
 var button = d3.select("#filter-btn");
 
-// Reference html file's tbody tag for inserting data
-var tbody = d3.select("tbody");
-
 // Event handlers for button clicks
 button.on("click", runEnter);
 form.on("submit", runEnter);
 
+// Event handler function for the form
 function runEnter() {
 
     // Preventing the page from reloading
@@ -40,6 +38,12 @@ function runEnter() {
     var filteredShape = filteredData.map(report => report.shape);
     var filteredDuration = filteredData.map(report => report.durationMinutes);
     var filteredComments = filteredData.map(report => report.comments);
+
+    // Reference html file's tbody tag for inserting data
+    var tbody = d3.select("tbody");
+
+    // Removing any existing data from table
+    tbody.html("");
 
     // Appending the filtered data elements to the tbody
     filteredData.forEach(function(report) {
